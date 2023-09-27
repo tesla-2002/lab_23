@@ -6,7 +6,7 @@
 #include "tree.h" //Подключаем файл с определениями прототипов функций, структур и библиотек
 
 int main(int argc, char* argv[]) {
-    int flag = 1, side = 1; //Переменная для меню выбора
+    int flag = 1, flag1 = 0, side = 1; //Переменная для меню выбора
     TreeItem root = 0, value = 0, newvalue = 0; //Переменная для ввода пользователем значений узлов
     printf("Введите значение корня дерева: ");
     scanf("%d", &root);
@@ -36,7 +36,19 @@ int main(int argc, char* argv[]) {
                 printf("Введите значение узла дерева, который нужно удалить ");
                 scanf("%d", &value);
                 if (search_in_tree(tree, value) != NULL){ //Если в результате поиска узел найден
-                    delete_node(search_in_tree(tree, value)); //Удаление узла с заданным значением
+                    if(delete_node(search_in_tree(tree, value)) != 1) { //Удаление узла с заданным значением
+                        printf("Вы удалили дерево!\n");
+                        delete_tree(tree);
+                        printf("\nЧто Вы хотите сделать?\n [1] - Создать новое дерево\n [0] - Завершить\n");
+                        scanf("%d", &flag1);
+                        if (flag1 == 1) {
+                            printf("Введите значение корня дерева: ");
+                            scanf("%d", &root);
+                            tree = tree_create(root); //Создаем дерево
+                        } else {
+                            return 0;
+                        }
+                    } 
                 } else {
                     printf("Такого узла не существует");
                 }
@@ -55,9 +67,7 @@ int main(int argc, char* argv[]) {
                 print_tree(tree, 0); //Конечный вид дерева
                 printf("\n\n\nКоличество нетерминальных вершин дерева: %d\n\n\n", count(tree)); //Подсчет нетерминальных вершин дерева
                 delete_tree(tree); //Удаление дерева
-                exit(0);
+                return 0;
         }
     }
-    
-    return 0;
 }
