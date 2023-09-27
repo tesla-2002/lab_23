@@ -13,7 +13,7 @@ typedef enum {         //Для удобства в switch case
         DELETE = 2,
         PRINT = 3,
         NUMBER = 4
-    } var_cases;
+} var_cases;
 
 Tree tree_create(TreeItem value); //Функция создания дерева (корня)
 Tree search_in_tree(Tree root, TreeItem value); //Функция поиска
