@@ -83,6 +83,7 @@ int delete_node(Tree node) { //Функция удаления узла, в ка
         }
 
         free(node);
+        return 1;
     }
     
     if (!node->right && node->left) { //Если у удаляемого узла только левый потомок
