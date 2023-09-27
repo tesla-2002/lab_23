@@ -20,7 +20,7 @@ Tree search_in_tree(Tree root, TreeItem value); //Функция поиска
 Tree search_left(Tree root, TreeItem value); //Функция поиска, обходит корень и левую ветвь дерева
 Tree search_right(Tree root, TreeItem value); //Функция поиска, обходит корень и правую ветвь дерева
 void add_node(Tree node, TreeItem value, int side); //Функция добавления узла в дерево, в качестве аргумента получает указатель на узел типа структуры _tree
-void delete_node(Tree node); //Функция удаления узла, в качестве аргумента принимает указатель на узел типа структуры _tree
+int delete_node(Tree node); //Функция удаления узла, в качестве аргумента принимает указатель на узел типа структуры _tree
 void print_node(TreeItem value, int inter); //Функция вывода значения каждого узла с отступами
 void print_tree(Tree h, int indent); //Функция вывода дерева
 int count(Tree node); //Функция подсчёта нетерминальных вершин дерева, в качестве аргумента принимает указатель на корень дерева
